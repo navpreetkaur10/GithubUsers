@@ -70,7 +70,12 @@ dependencies {
     implementation libs.androidx.appcompat
     implementation libs.material
     implementation libs.androidx.activity
+    implementation libs.androidx.junit.ktx
 
+    // Compose Testing
+    testImplementation libs.ui.test.junit4
+    testImplementation libs.androidx.runner
+    testImplementation libs.androidx.junit.vtestversion
 
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
