@@ -31,6 +31,7 @@ class DetailsActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Get Bundle and check for the parcelable "Repo" data.
         if (intent != null) {
             val bundle = intent.getBundleExtra("bundle")
             repo = bundle?.parcelable("repo")
@@ -44,6 +45,7 @@ class DetailsActivity : ComponentActivity() {
                 ) {
                     val details = repo
                     if (details != null) {
+                        // If the forks are more than 5k, then change the color.
                         val textColor = if (details.forks > 5000) Color.Red else Color.Black
                         Column {
                             Text(
@@ -81,6 +83,9 @@ class DetailsActivity : ComponentActivity() {
         }
     }
 
+    /**
+     * This method will create a SpannableString. Bold Label with regular value.
+     */
     private fun annotate(key: String, value: String) = buildAnnotatedString {
         withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
             append(key)

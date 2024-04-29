@@ -34,11 +34,12 @@ class MainActivity : ComponentActivity() {
                     Column {
                         UserIdEditText(viewModel)
 
-                        // Avatar will be changed based on the state of the user
+                        // Avatar will be changed based on the user
                         Avatar(viewModel.userState.collectAsState().value)
 
                         // Repositories will be shown in the recycler view
                         Repositories(repos = viewModel.reposState.collectAsState().value) { repo ->
+                            // Clicking on the repo will move to the DetailsActivity
                             val intent = Intent(this@MainActivity, DetailsActivity::class.java)
                             intent.putExtra("bundle", Bundle().apply {
                                 putParcelable("repo", repo)
