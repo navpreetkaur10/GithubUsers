@@ -1,9 +1,9 @@
-package com.scotia.githubusers
+package com.scotia.githubusers.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.scotia.githubusers.models.ReposUiState
-import com.scotia.githubusers.models.UserUiState
+import com.scotia.githubusers.models.User
 import com.scotia.githubusers.network.GitHubService
 import com.scotia.githubusers.network.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,8 +15,8 @@ import java.lang.Exception
 class MainViewModel: ViewModel() {
 
     // User UI state
-    private val _uiState = MutableStateFlow(UserUiState())
-    val uiState: StateFlow<UserUiState> = _uiState.asStateFlow()
+    private val _userState = MutableStateFlow(User())
+    val userState: StateFlow<User> = _userState.asStateFlow()
 
     // Repos UI state
     private val _reposState: MutableStateFlow<List<ReposUiState>> = MutableStateFlow(emptyList())
@@ -29,7 +29,7 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 val user = service.getUser(username)
-                _uiState.value = user
+                _userState.value = user
                 val repos = service.getRepos(username)
                 _reposState.value = repos
             } catch (e: Exception) {

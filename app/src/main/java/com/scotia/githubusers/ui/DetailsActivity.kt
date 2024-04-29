@@ -1,4 +1,4 @@
-package com.scotia.githubusers
+package com.scotia.githubusers.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -15,13 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.scotia.githubusers.R
 import com.scotia.githubusers.models.ReposUiState
 import com.scotia.githubusers.ui.theme.GithubUsersTheme
 import com.scotia.githubusers.utilities.parcelable

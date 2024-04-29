@@ -3,7 +3,7 @@ package com.scotia.githubusers.models
 
 import com.google.gson.annotations.SerializedName
 
-data class UserUiState(
+data class User(
     @SerializedName("login")
     val username: String? = "",
 
